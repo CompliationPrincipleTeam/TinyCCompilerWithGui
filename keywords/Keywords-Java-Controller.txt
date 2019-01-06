@@ -1,0 +1,17 @@
+break
+continue
+return
+do
+while
+if
+else
+for
+instanceof
+switch
+case
+default
+try
+catch
+throw
+throws
+goto
