@@ -1,0 +1,32 @@
+{
+    int len;
+   	int [100] a;
+   	int i;
+   	int j;
+   	int t;
+   	int g;
+   	len=100;
+   	g=1;
+   	while(g<(len/3))
+   	{
+   	    g=g*3;
+   	    g=g+1;
+   	}
+   	while(g>0)
+   	{
+   	    i=g;
+   	    while(i<len)
+   	    {
+   	        t=a[i];
+   	        j=i-g;
+   	        while((j>0)&&(a[j]>t))
+   	        {
+   	            a[j+g]=a[j];
+   	            j=j-g;
+   	        }
+   	        a[j+g]=t;
+   	        i=i+1;
+   	    }
+   	    g=g/3;
+   	}
+}

@@ -1,0 +1,27 @@
+L1:
+sum = 0
+L3:
+i = 0
+L4:
+len = 100
+L5:
+ifnot (i < len) goto L6
+L7:
+t1 = i * 4
+t2 = len - i
+a[t1] = t2
+L8:
+i = i + 1
+goto L5
+L6:
+i = 0
+L9:
+ifnot (i < len) goto L2
+L10:
+t3 = i * 4
+t4 = a[t3]
+sum = sum + t4
+L11:
+i = i + 1
+goto L9
+L2:

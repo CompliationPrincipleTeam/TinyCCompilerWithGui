@@ -5,9 +5,11 @@ public enum CodeType {
 	Cplusplus,
 	Java,
 	Python,
+	TinyC,
 	Xml,
 	Html,
-	Other
+	Other,
+	
 }
 
 

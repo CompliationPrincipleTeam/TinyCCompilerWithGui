@@ -1,0 +1,48 @@
+L1:
+len = 100
+L3:
+g = 1
+L4:
+t1 = len / 3
+ifnot (g < t1) goto L5
+L6:
+g = g * 3
+L7:
+g = g + 1
+goto L4
+L5:
+ifnot (g > 0) goto L2
+L8:
+i = g
+L9:
+ifnot (i < len) goto L10
+L11:
+t2 = i * 4
+t = a[t2]
+L12:
+j = i - g
+L13:
+ifnot (j > 0) goto L14
+t3 = j * 4
+t4 = a[t3]
+ifnot (t4 > t) goto L14
+L15:
+t5 = j + g
+t6 = t5 * 4
+t7 = j * 4
+t8 = a[t7]
+a[t6] = t8
+L16:
+j = j - g
+goto L13
+L14:
+t9 = j + g
+t10 = t9 * 4
+a[t10] = t
+L17:
+i = i + 1
+goto L9
+L10:
+g = g / 3
+goto L5
+L2:

@@ -1,0 +1,37 @@
+{
+	int i;
+	int j;
+	int len;
+	int[100] a;
+	int pos;
+	int tmp;
+	pos=0;
+	i=0;
+	j=0;
+	len=100;
+	while(i<len)
+	{
+		a[i]=len-i;
+		i=i+1;
+	}
+	i=0;
+	j=0;
+	while(i<len-1)
+	{
+		pos=i;
+		j=i+1;
+		while(j<len)
+		{
+			if(a[j]<a[pos])
+			{
+				pos=j;
+			}
+			j=j+1;
+		}
+		tmp = a[i];
+		a[i] = a[pos];
+		a[pos] = tmp;
+		i=i+1;
+	}
+	
+}

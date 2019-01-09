@@ -1,0 +1,16 @@
+L1:
+   mov eax,1
+   mov a,eax
+L3:
+   mov eax,2
+   mov b,eax
+L4:
+   mov eax,a
+   mov c,eax
+L5:
+   mov eax,b
+   mov a,eax
+L6:
+   mov eax,c
+   mov b,eax
+L2:

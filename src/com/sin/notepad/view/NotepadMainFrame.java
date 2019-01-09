@@ -90,6 +90,9 @@ import com.sin.notepad.util.Clock;
 import com.sin.notepad.util.LineOrder;
 import com.sin.notepad.util.MQFontChooser;
 
+import tinyccompiler.run.RunTinyCCompiler;
+import xuefanggang.StackRun;
+
 public class NotepadMainFrame extends JFrame implements ActionListener{
     /**
      * 序列号
@@ -758,6 +761,7 @@ public class NotepadMainFrame extends JFrame implements ActionListener{
         JButton clockButton = new JButton(new ImageIcon("icon/clock.png"));
         JButton magnifyButton = new JButton(new ImageIcon("icon/magnify.png"));
         JButton buildButton = new JButton(new ImageIcon("icon/build.png"));
+        JButton stackButton = new JButton(new ImageIcon("icon/stack.png"));
         iconButtonPanel.add(openButton);
         iconButtonPanel.add(saveButton);
         iconButtonPanel.add(findButton);
@@ -771,6 +775,15 @@ public class NotepadMainFrame extends JFrame implements ActionListener{
         iconButtonPanel.add(snipButton);
         iconButtonPanel.add(magnifyButton);
         iconButtonPanel.add(buildButton);
+        iconButtonPanel.add(stackButton);
+        stackButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				StackRun.run();
+				
+			}
+		});
         openButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -878,9 +891,15 @@ public class NotepadMainFrame extends JFrame implements ActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				// TODO Auto-generated method stub
 				//根据后缀build code
-				buildAction();
+				//buildAction();
+				/*
+				 * 暂时改为编译原理的调用接口
+				 *
+				 */
+				runTinyCCompiler();
 			}
 		});
         
@@ -1996,5 +2015,19 @@ public class NotepadMainFrame extends JFrame implements ActionListener{
     public static String getCurrentFilePath() {
 		return currentPath;
 	}
+    
+    //XXX:TinyCCompiler
+    private void runTinyCCompiler()
+    {
+    	try 
+    	{
+    		if(!textArea.getText().equals("") && textArea.getText()!=null)
+    			RunTinyCCompiler.run(this,textArea.getText());
+		} 
+    	catch (IOException e) 
+    	{
+			e.printStackTrace();
+		}
+    }
 
 }

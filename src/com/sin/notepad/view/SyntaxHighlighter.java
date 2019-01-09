@@ -28,13 +28,13 @@ import com.sin.notepad.global.CodeType;
  */
 class SyntaxHighlighter implements DocumentListener {
 	private final static String dir = "keywords/";
-	private String controller = null;
-	private String dataType = null;
-	private String Class = null;
+	private String controllerRed = null;
+	private String dataTypeBlue = null;
+	private String ClassMagenta = null;
 	
-	private Set<String> controllerWords;
-	private Set<String> dataTypeWords;
-	private Set<String> classWords;
+	private Set<String> redWords;
+	private Set<String> blueWords;
+	private Set<String> magentaWords;
 	private Style normalStyle;
 	private Style controllerWordsStyle,dataTypeWordsStyle,classWordsStyle;
 	private Style noteStyle;
@@ -51,34 +51,40 @@ class SyntaxHighlighter implements DocumentListener {
 		StyleConstants.setForeground(classWordsStyle, Color.MAGENTA);
 		StyleConstants.setForeground(noteStyle, Color.GREEN);
 
-		controllerWords = new HashSet<String>();
-		dataTypeWords = new HashSet<String>();
-		classWords = new HashSet<String>();
+		redWords = new HashSet<String>();
+		blueWords = new HashSet<String>();
+		magentaWords = new HashSet<String>();
 		
 		if(type == null)
 		{
 			//do nothing
-			controller = dataType = Class = null;
+			controllerRed = dataTypeBlue = ClassMagenta = null;
 		}
 		if(type == CodeType.Java)
 		{
-			controller = dir + "Keywords-Java-Controller.txt";
-			dataType = dir + "Keywords-Java-DataType.txt";
-			Class = dir + "Keywords-Java-Class.txt";
+			controllerRed = dir + "Keywords-Java-Controller.txt";
+			dataTypeBlue = dir + "Keywords-Java-DataType.txt";
+			ClassMagenta = dir + "Keywords-Java-Class.txt";
 		}
 		else if(type == CodeType.C || type == CodeType.Cplusplus)
 		{
-			controller = dir + "Keywords-Cplusplus-Controller.txt";
-			dataType = dir + "Keywords-Cplusplus-DataType.txt";
-			Class = dir + "Keywords-Cplusplus-Class.txt";
+			controllerRed = dir + "Keywords-Cplusplus-Controller.txt";
+			dataTypeBlue = dir + "Keywords-Cplusplus-DataType.txt";
+			ClassMagenta = dir + "Keywords-Cplusplus-Class.txt";
 		}
 		else if(type == CodeType.Python)
 		{
-			controller = dataType = Class = dir + "Keywords-Python.txt";
+			controllerRed = dataTypeBlue = ClassMagenta = dir + "Keywords-Python.txt";
+		}
+		else if(type == CodeType.TinyC)
+		{
+			controllerRed = dir + "TinyCCompiler-Regsiter.txt";
+			dataTypeBlue = dir + "TinyCCompiler-Instructions.txt";
+			ClassMagenta = dir + "TinyCCompiler-InterCode.txt";
 		}
 		else 
 		{
-			controller = dataType = Class = null;
+			controllerRed = dataTypeBlue = ClassMagenta = null;
 		}
 		
 		initKeywordsSet();
@@ -86,12 +92,12 @@ class SyntaxHighlighter implements DocumentListener {
 	
 	public void initKeywordsSet() throws IOException
 	{
-		if(controller!=null)
-			this.readKeywordsFile(controller, controllerWords);
-		if(dataType!=null)
-			this.readKeywordsFile(dataType, dataTypeWords);
-		if(Class!=null)
-			this.readKeywordsFile(Class, classWords);
+		if(controllerRed!=null)
+			this.readKeywordsFile(controllerRed, redWords);
+		if(dataTypeBlue!=null)
+			this.readKeywordsFile(dataTypeBlue, blueWords);
+		if(ClassMagenta!=null)
+			this.readKeywordsFile(ClassMagenta, magentaWords);
 	}
 	
 	public void readKeywordsFile(String file, Set<String> set) throws IOException
@@ -143,15 +149,15 @@ class SyntaxHighlighter implements DocumentListener {
 		int wordEnd = indexOfWordEnd(doc, pos);
 		String word = doc.getText(pos, wordEnd - pos);
 		//System.out.println(word);
-		if(controllerWords.contains(word))
+		if(redWords.contains(word))
 		{
 			SwingUtilities.invokeLater(new ColouringTask(doc, pos, wordEnd - pos, controllerWordsStyle));
 		}
-		else if(dataTypeWords.contains(word))
+		else if(blueWords.contains(word))
 		{
 			SwingUtilities.invokeLater(new ColouringTask(doc, pos, wordEnd - pos, dataTypeWordsStyle));
 		}
-		else if(classWords.contains(word))
+		else if(magentaWords.contains(word))
 		{
 			SwingUtilities.invokeLater(new ColouringTask(doc, pos, wordEnd - pos, classWordsStyle));
 		}

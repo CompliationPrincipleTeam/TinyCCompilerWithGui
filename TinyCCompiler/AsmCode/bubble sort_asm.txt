@@ -1,0 +1,129 @@
+L1:
+   mov eax,50
+   mov len,eax
+L3:
+   mov eax,0
+   mov i,eax
+L4:
+   mov eax,i
+   mov ebx,len
+   cmp eax,ebx
+   jge L5
+L6:
+   mov eax,i
+   mov ebx,4
+   imul ebx
+   mov t1,eax
+   mov eax,len
+   sub eax,i
+   mov t2,eax
+   mov eax,t2
+   lea ebx,[a]
+   mov esi,t1
+   mov [ebx+esi],eax
+L7:
+   mov eax,i
+   add eax,1
+   mov i,eax
+   jmp L4
+L5:
+   mov eax,0
+   mov i,eax
+L8:
+   mov eax,len
+   sub eax,1
+   mov t3,eax
+   mov eax,i
+   mov ebx,t3
+   cmp eax,ebx
+   jge L2
+L9:
+   mov eax,0
+   mov j,eax
+L10:
+   mov eax,len
+   sub eax,1
+   mov t4,eax
+   mov eax,t4
+   sub eax,i
+   mov t5,eax
+   mov eax,j
+   mov ebx,t5
+   cmp eax,ebx
+   jge L11
+L12:
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t6,eax
+   lea ebx,[a]
+   mov esi,t6
+   mov eax,[ebx+esi]
+   mov t7,eax
+   mov eax,j
+   add eax,1
+   mov t8,eax
+   mov eax,t8
+   mov ebx,4
+   imul ebx
+   mov t9,eax
+   lea ebx,[a]
+   mov esi,t9
+   mov eax,[ebx+esi]
+   mov t10,eax
+   mov eax,t7
+   mov ebx,t10
+   cmp eax,ebx
+   jle L13
+L14:
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t11,eax
+   lea ebx,[a]
+   mov esi,t11
+   mov eax,[ebx+esi]
+   mov t,eax
+L15:
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t12,eax
+   mov eax,j
+   add eax,1
+   mov t13,eax
+   mov eax,t13
+   mov ebx,4
+   imul ebx
+   mov t14,eax
+   lea ebx,[a]
+   mov esi,t14
+   mov eax,[ebx+esi]
+   mov t15,eax
+   mov eax,t15
+   lea ebx,[a]
+   mov esi,t12
+   mov [ebx+esi],eax
+L16:
+   mov eax,j
+   add eax,1
+   mov t16,eax
+   mov eax,t16
+   mov ebx,4
+   imul ebx
+   mov t17,eax
+   mov eax,t
+   lea ebx,[a]
+   mov esi,t17
+   mov [ebx+esi],eax
+L13:
+   mov eax,j
+   add eax,1
+   mov j,eax
+   jmp L10
+L11:
+   mov eax,i
+   add eax,1
+   mov i,eax
+   jmp L8
+L2:

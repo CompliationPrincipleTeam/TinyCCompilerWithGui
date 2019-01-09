@@ -1,0 +1,7 @@
+L1:
+   mov eax,1
+   mov i,eax
+L3:
+   mov eax,1
+   mov j,eax
+L2:

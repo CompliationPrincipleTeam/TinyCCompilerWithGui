@@ -1,0 +1,51 @@
+L1:
+len = 50
+L3:
+i = 0
+L4:
+ifnot (i < len) goto L5
+L6:
+t1 = i * 4
+t2 = len - i
+a[t1] = t2
+L7:
+i = i + 1
+goto L4
+L5:
+i = 0
+L8:
+t3 = len - 1
+ifnot (i < t3) goto L2
+L9:
+j = 0
+L10:
+t4 = len - 1
+t5 = t4 - i
+ifnot (j < t5) goto L11
+L12:
+t6 = j * 4
+t7 = a[t6]
+t8 = j + 1
+t9 = t8 * 4
+t10 = a[t9]
+ifnot (t7 > t10) goto L13
+L14:
+t11 = j * 4
+t = a[t11]
+L15:
+t12 = j * 4
+t13 = j + 1
+t14 = t13 * 4
+t15 = a[t14]
+a[t12] = t15
+L16:
+t16 = j + 1
+t17 = t16 * 4
+a[t17] = t
+L13:
+j = j + 1
+goto L10
+L11:
+i = i + 1
+goto L8
+L2:

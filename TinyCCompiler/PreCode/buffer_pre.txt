@@ -1,0 +1,30 @@
+{
+	int len;
+	int[50] a;
+	int i;
+	int j;
+	int t;
+	len=50;
+	i=0;
+	while(i<len)
+	{
+		a[i]=len-i;
+		i=i+1;
+	}
+	i=0;
+	while(i<len-1)
+	{
+		j=0;
+		while(j < (len-1-i) )
+		{
+			if(a[j]>a[j+1])
+			{
+				t=a[j];
+				a[j]=a[j+1];
+				a[j+1]=t;
+			}
+			j=j+1;
+		}
+		i=i+1;
+	}
+}

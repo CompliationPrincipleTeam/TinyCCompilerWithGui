@@ -1,0 +1,85 @@
+L1:
+   mov eax,10
+   mov len,eax
+L3:
+   mov eax,1
+   mov i,eax
+L4:
+   mov eax,i
+   mov ebx,len
+   cmp eax,ebx
+   jge L2
+L5:
+   mov eax,i
+   sub eax,1
+   mov j,eax
+L6:
+   mov eax,i
+   mov ebx,4
+   imul ebx
+   mov t1,eax
+   lea ebx,[a]
+   mov esi,t1
+   mov eax,[ebx+esi]
+   mov t,eax
+L7:
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t2,eax
+   lea ebx,[a]
+   mov esi,t2
+   mov eax,[ebx+esi]
+   mov t3,eax
+   mov eax,t
+   mov ebx,t3
+   cmp eax,ebx
+   jge L8
+   mov eax,j
+   mov ebx,0
+   cmp eax,ebx
+   jl L8
+L9:
+   mov eax,j
+   add eax,1
+   mov t4,eax
+   mov eax,t4
+   mov ebx,4
+   imul ebx
+   mov t5,eax
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t6,eax
+   lea ebx,[a]
+   mov esi,t6
+   mov eax,[ebx+esi]
+   mov t7,eax
+   mov eax,t7
+   lea ebx,[a]
+   mov esi,t5
+   mov [ebx+esi],eax
+L10:
+   mov eax,j
+   sub eax,1
+   mov j,eax
+   jmp L7
+L8:
+   mov eax,j
+   add eax,1
+   mov j,eax
+L11:
+   mov eax,j
+   mov ebx,4
+   imul ebx
+   mov t8,eax
+   mov eax,t
+   lea ebx,[a]
+   mov esi,t8
+   mov [ebx+esi],eax
+L12:
+   mov eax,i
+   add eax,1
+   mov i,eax
+   jmp L4
+L2:

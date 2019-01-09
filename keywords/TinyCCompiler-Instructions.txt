@@ -1,0 +1,15 @@
+mov
+lea
+cmp
+jge
+jle
+jl
+jg
+jmp
+add
+sub
+imul
+idiv
+if
+ifnot
+goto

@@ -1,0 +1,8 @@
+eax
+ebx
+ecx
+edx
+esi
+edi
+ebp
+esp

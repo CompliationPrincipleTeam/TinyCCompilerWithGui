@@ -1,0 +1,57 @@
+L1:
+   mov eax,0
+   mov sum,eax
+L3:
+   mov eax,0
+   mov i,eax
+L4:
+   mov eax,100
+   mov len,eax
+L5:
+   mov eax,i
+   mov ebx,len
+   cmp eax,ebx
+   jge L6
+L7:
+   mov eax,i
+   mov ebx,4
+   imul ebx
+   mov t1,eax
+   mov eax,len
+   sub eax,i
+   mov t2,eax
+   mov eax,t2
+   lea ebx,[a]
+   mov esi,t1
+   mov [ebx+esi],eax
+L8:
+   mov eax,i
+   add eax,1
+   mov i,eax
+   jmp L5
+L6:
+   mov eax,0
+   mov i,eax
+L9:
+   mov eax,i
+   mov ebx,len
+   cmp eax,ebx
+   jge L2
+L10:
+   mov eax,i
+   mov ebx,4
+   imul ebx
+   mov t3,eax
+   lea ebx,[a]
+   mov esi,t3
+   mov eax,[ebx+esi]
+   mov t4,eax
+   mov eax,sum
+   add eax,t4
+   mov sum,eax
+L11:
+   mov eax,i
+   add eax,1
+   mov i,eax
+   jmp L9
+L2:

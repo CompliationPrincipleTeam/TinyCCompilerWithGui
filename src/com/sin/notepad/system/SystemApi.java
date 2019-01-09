@@ -27,7 +27,7 @@ public class SystemApi {
 	 * @param dir
 	 * @return
 	 * @throws IOException
-	 * @throws InterruptedException
+	 * @throws interruptedException
 	 */
 	public static ArrayList<String> runCmd(String command,File dir) throws IOException, InterruptedException
 	{

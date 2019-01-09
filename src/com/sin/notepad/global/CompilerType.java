@@ -4,5 +4,5 @@ public enum CompilerType{
 	GCC,
 	GPlusPlus,
 	JDK,
-	PythonInterpreter,
+	Pythoninterpreter,
 }
